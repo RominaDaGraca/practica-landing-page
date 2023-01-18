@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Raleway', sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+    height: 650px;
+    align-items: center; /*para que los elementos esten centrados verticalmente*/
+    overflow: hidden;
+}
+.contenedor-ilustraciones{
+    width: 50%;
+    height: inherit; /*que lo heredes de tu padre*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.blob{
+    position: absolute; /*porq su padre .contenedor-ilustraciones tiene una position relativa*/
+    z-index: -1; /* se pone -1 para que se ponga atras de la imagen*/
+    top: -100px;
+    right: -100px;
+    width: 800px;
+}
+
+/*vamos a elegir el primer elemento que este en contenedor-ilustraciones que seria  la imagen con nth-child */
+.contenedor-ilustraciones :nth-child(1){
+    width: 90%;
+}
+
+.contenedor-textos{
+    text-align: center;
+    width: 40%; /*para que haya un poco de espacio entre los textos*/
+}
+
+.contenedor-textos h1{
+    font-size: 60px;
+}
+.contenedor-textos p{
+    margin: 10px 0 30px 0;
+    font-size: 22px;
+}
+.cta{
+    display: inline-block;
+    background-color: rgb(161, 79, 137);
+    padding: 15px 0;
+    width: 150px;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+@media screen and (max-width:800px){
+    .container{
+        flex-direction: column;
+        height: auto;
+    }
+    .contenedor-ilustraciones{
+        order: -1; /*para que se vea primero la ilustracion y despues el texto*/
+        width: 70%;
+        margin: 80px 0 30px 0;
+    }
+    .contenedor-textos{
+        width: 90%;
+    }
+    .contenedor-textos h1{
+        font-size: 30px;
+    }
+    .contenedor-textos p{
+        margin: 10px 0 15px 0;
+        font-size: 18px;
+    }
+}
